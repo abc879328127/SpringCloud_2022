@@ -10,10 +10,10 @@ import java.lang.annotation.Target;
 
 
 /**
- * 系统日志注解
- *
- * @author Mark sunlightcs@gmail.com
- */
+* 系统日志注解
+* @author: guojd
+* @date: 2022/9/1 下午11:41
+*/
 @Aspect
 @Configuration
 @Target(ElementType.METHOD)

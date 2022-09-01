@@ -1,12 +1,12 @@
 package com.atguigu.springcloud.advice;
 
+import com.atguigu.springcloud.utils.CustomExceptionEnum;
+
 /**
- *
  * 异常实体类
- *
- * @author: dzd
- * @date: 2022/4/12
- */
+ * @author: guojd
+ * @date: 2022/9/1 下午11:44
+*/
 public class CustomException extends RuntimeException {
     private static final long serialVersionUID = 1L;
     private Integer errorCode;

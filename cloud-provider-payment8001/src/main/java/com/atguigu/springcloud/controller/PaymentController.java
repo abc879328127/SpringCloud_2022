@@ -28,9 +28,9 @@ public class PaymentController {
 
     }
 
+    @SysLog
     @GetMapping(value = "/payment/get/{id}")
     public ReturnResult create(@PathVariable("id") Long id){
-
         return ReturnResult.succeedReturn(paymentService.getPaymentById(id));
 
     }

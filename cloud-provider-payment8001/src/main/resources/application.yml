@@ -10,6 +10,8 @@ spring:
     url: jdbc:mysql://localhost:3306/db2019?useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: root
     password: 879328127
+    druid:
+      test-while-idle: false
 
 
 mybatis:

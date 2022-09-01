@@ -24,7 +24,7 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
 
-    @SysLog
+
     @Override
     public Payment getPaymentById(Long id) {
         return paymentDao.getPaymentById(id);

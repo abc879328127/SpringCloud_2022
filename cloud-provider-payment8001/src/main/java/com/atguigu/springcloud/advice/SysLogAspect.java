@@ -1,7 +1,6 @@
 package com.atguigu.springcloud.advice;
 
-import com.atguigu.springcloud.advice.CustomException;
-import com.atguigu.springcloud.advice.ReturnResult;
+import com.atguigu.springcloud.utils.ReturnResult;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -13,9 +12,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 
 /**
- * @author: dzd
- * @date: 2022/4/12
- */
+ * @author: guojd
+ * @date: 2022/9/1 下午11:52
+*/
 @Slf4j
 @Aspect
 @Order(-1)
@@ -42,7 +41,9 @@ public class SysLogAspect {
             long executionTime = endTimeStamp - startTimeStamp;
             log.info("方法:{} 执行时间为 {} ms", methodName, executionTime);
 
-            if (proceed == null) return null;
+            if (proceed == null) {
+                return null;
+            }
 
             ReturnResult returnResult = (ReturnResult) proceed;
             returnResult.setCost(executionTime);
