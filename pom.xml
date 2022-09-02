@@ -9,6 +9,8 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>cloud-provider-payment8001</module>
+        <module>cloud-consumer-order80</module>
+        <module>cloud-common-util</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -23,6 +25,7 @@
         <druid.version>1.1.16</druid.version>
         <aspectj.version>1.8.9</aspectj.version>
         <mybatis.spring.boot.version>1.3.0</mybatis.spring.boot.version>
+        <cloud-common-util>1.0-SNAPSHOT</cloud-common-util>
     </properties>
 
     <!-- 子模块继承之后，提供作用：锁定版本+子modlue不用写groupId和version  -->
@@ -90,8 +93,15 @@
                 <artifactId>aspectjweaver</artifactId>
                 <version>${aspectj.version}</version>
             </dependency>
+            <!--通用common utils-->
+            <dependency>
+                <groupId>com.atguigu.springcloud</groupId>
+                <artifactId>cloud-common-util</artifactId>
+                <version>${cloud-common-util}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
+    <!--自动热部署-->
     <build>
         <plugins>
             <plugin>

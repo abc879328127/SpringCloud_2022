@@ -3,9 +3,9 @@ package com.atguigu.springcloud.utils;
 import java.io.Serializable;
 
 /**
-* @author: guojd
-* @date: 2022/9/1 下午9:28
-*/
+ * @author: guojd
+ * @date: 2022/9/1 下午9:28
+ */
 public class ReturnResult<T> implements Serializable {
     private static final long serialVersionUID = 1L;
     private Integer code;
