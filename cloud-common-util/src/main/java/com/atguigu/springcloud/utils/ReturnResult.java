@@ -9,19 +9,27 @@ import java.io.Serializable;
 public class ReturnResult<T> implements Serializable {
     private static final long serialVersionUID = 1L;
     private Integer code;
+    private Integer amount;
+    private String serverPort;
     private String msg;
     private Long cost;
     private T data;
     public ReturnResult() {
     }
-    public ReturnResult(Integer code, String msg) {
-        this.code = code;
-        this.msg = msg;
+    public ReturnResult(Integer amount, String serverPort) {
+        this.amount = amount;
+        this.serverPort = serverPort;
     }
     public ReturnResult(Integer code, String msg,T data) {
         this.code = code;
         this.msg = msg;
         this.data = data;
+    }
+    public ReturnResult(CustomExceptionEnum customExceptionEnum,Integer amount, String serverPort) {
+        this.amount = amount;
+        this.serverPort = serverPort;
+        this.code = customExceptionEnum.getResultCode();
+        this.msg = customExceptionEnum.getResultMsg();
     }
 
     public ReturnResult(CustomExceptionEnum customExceptionEnum) {
@@ -41,6 +49,12 @@ public class ReturnResult<T> implements Serializable {
         this.msg = customExceptionEnum.getResultMsg();
     }
 
+    public ReturnResult(CustomExceptionEnum customExceptionEnum,T data, String serverPort) {
+        this.code = customExceptionEnum.getResultCode();
+        this.data = data;
+        this.msg = customExceptionEnum.getResultMsg();
+        this.serverPort = serverPort;
+    }
     public ReturnResult(CustomExceptionEnum customExceptionEnum, Long cost, T data) {
         this.code = customExceptionEnum.getResultCode();
         this.msg = customExceptionEnum.getResultMsg();
@@ -51,8 +65,11 @@ public class ReturnResult<T> implements Serializable {
     public static ReturnResult succeedReturn(String executionTime) {
         return new ReturnResult(CustomExceptionEnum.SUCCESS, executionTime);
     }
-    public static ReturnResult succeedReturn(Integer code,String msg) {
-        return new ReturnResult(code,msg);
+    public static ReturnResult succeedReturn(Integer amount,String serverPort) {
+        return new ReturnResult(CustomExceptionEnum.SUCCESS,amount,serverPort);
+    }
+    public static ReturnResult succeedReturnTakePort(CustomExceptionEnum customExceptionEnum,Integer amount,String serverPort) {
+        return new ReturnResult(customExceptionEnum,amount,serverPort);
     }
     public static<T> ReturnResult succeedReturn(Integer code, String msg, T data) {
         return new ReturnResult(code,msg,data);
@@ -72,6 +89,9 @@ public class ReturnResult<T> implements Serializable {
 
     public static <T> ReturnResult succeedReturn(T data) {
         return new ReturnResult(CustomExceptionEnum.SUCCESS, data);
+    }
+    public static <T> ReturnResult succeedReturn(T data,String serverPort) {
+        return new ReturnResult(CustomExceptionEnum.SUCCESS, data,serverPort);
     }
 
     public static ReturnResult succeedReturn(CustomExceptionEnum customExceptionEnum) {
@@ -116,6 +136,22 @@ public class ReturnResult<T> implements Serializable {
 
     public T getData() {
         return this.data;
+    }
+
+    public String getServerPort() {
+        return serverPort;
+    }
+
+    public Integer getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Integer amount) {
+        this.amount = amount;
+    }
+
+    public void setServerPort(String serverPort) {
+        this.serverPort = serverPort;
     }
 
     public void setCode(Integer code) {
@@ -212,6 +248,6 @@ public class ReturnResult<T> implements Serializable {
 //    }
 
     public String toString() {
-        return "ReturnResult(code=" + this.getCode() + ", message=" + this.getMsg() + ", cost=" + this.getCost() + ", data=" + this.getData() + ")";
+        return "ReturnResult(code=" + this.getCode() + ", message=" + this.getMsg() + ", cost=" + this.getCost() +", serverPort=" + this.getServerPort()+", amount=" + this.getAmount()+ ", data=" + this.getData() + ")";
     }
 }

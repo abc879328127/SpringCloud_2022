@@ -6,7 +6,7 @@ package com.atguigu.springcloud.utils;
 */
 public enum CustomExceptionEnum {
 
-    SUCCESS(0, "success"),
+    SUCCESS(200, "success"),
     PARAM_BLANK_EXCEPTION(51001, "参数不能为空!"),
     PARAM_CHECK_EXCEPTION(51002, "%s"),
     IO_EXCEPTION(51003, "接口IO异常!"),
