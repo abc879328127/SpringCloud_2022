@@ -15,9 +15,9 @@ import org.springframework.web.client.RestTemplate;
  */
 @SpringBootApplication
 @EnableEurekaClient
-public class OrderMain80 {
+public class OrderEurekaMain80 {
     public static void main(String[] args) {
-        SpringApplication.run(OrderMain80.class, args);
+        SpringApplication.run(OrderEurekaMain80.class, args);
     }
 
 

@@ -15,7 +15,7 @@ import org.springframework.web.client.RestTemplate;
  */
 @Slf4j
 @RestController
-public class OrderController {
+public class OrderEurekaController {
 
     public static final String PAYMENT_URL = "http://CLOUD-PAYMENT-SERVICE";
 //    public static final String PAYMENT_URL = "http://localhost:8001";
