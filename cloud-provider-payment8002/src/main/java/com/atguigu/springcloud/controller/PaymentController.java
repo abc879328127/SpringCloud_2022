@@ -40,5 +40,8 @@ public class PaymentController {
         return ReturnResult.succeedReturn(paymentService.getPaymentById(id),serverPort);
 
     }
-
+    @GetMapping(value = "/payment/lb")
+    public String getLoadBalancer(){
+        return serverPort;
+    }
 }

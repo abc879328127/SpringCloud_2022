@@ -57,4 +57,8 @@ public class PaymentController {
         return ReturnResult.succeedReturn(this.discoveryClient);
     }
 
+    @GetMapping(value = "/payment/lb")
+    public String getLoadBalancer(){
+        return serverPort;
+    }
 }
